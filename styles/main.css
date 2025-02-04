@@ -1,5 +1,110 @@
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(50, 50, 50, 0.6)),
+                url("https://img.freepik.com/free-vector/abstract-curved-perspective-grid-lines-layout-design_1017-47105.jpg?w=1024");
+    background-size: cover;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    background-repeat: no-repeat;
+}
+
+button {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.95);
+    border: none;
+    max-width: 90vw;
+    width: 500px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 15px;
+    border-radius: 12px;
+    overflow: hidden;
+    padding: 20px;
+    text-align: center;
+}
+
 div[data-testid="colorBox"] {
+    margin: 10px auto;
+    width: 100%;
+    height: 200px;
+    background: #333333;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+div[data-testid="colorBox"]:hover {
+    transform: scale(1.02);
+}
+
+.button-container {
+    gap: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    justify-content: center;
+}
+
+.colorOptionButton {
     width: 100px;
     height: 100px;
-    background: red;
+    border-radius: 25%;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    background-color: #333333;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.colorOptionButton:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+#gameInstructions {
+    font-size: 18px;
+    font-weight: bold;
+    color: #444;
+}
+
+#score {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+#newGame {
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #52bd52, #3ca93c);
+    color: white;
+    font-size: 16px;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+#newGame:hover {
+    background: linear-gradient(135deg, #4aaa4a, #32a132);
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 480px) {
+    #newGame {
+        height: 40px;
+        padding: 5px 10px;
+    }
+    .colorOptionButton {
+        width: 80px;
+        height: 80px;
+    }
+    .container {
+        padding: 10px;
+    }
+    div[data-testid="colorBox"] {
+        height: 150px;
+    }
 }
