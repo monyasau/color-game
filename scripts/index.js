@@ -36,7 +36,7 @@ const renderOptionButtons=()=>{
     targetColorElement.style.backgroundColor = targetColor;
     computedArray.forEach((color)=>{
         let optionButton = document.createElement("button")
-        optionButton.style.backgroundColor = "#333333";
+        optionButton.style.backgroundColor = color;
         optionButton.className = "colorOptionButton"
         optionButton.setAttribute("data-testid","colorOption")
         optionButton.addEventListener("click",()=>checkAnswer(color))
@@ -46,9 +46,6 @@ const renderOptionButtons=()=>{
 const checkAnswer = (selectedColor) => {
     if (!gameActive) return; // to prevent multiple clicks during an active round
     gameActive = false;
-    document.querySelectorAll('button[data-testid="colorOption"').forEach((button, index) => {
-        button.style.backgroundColor = computedArray[index];
-    });
 
     if (selectedColor === targetColor) {
         gameStatus.textContent="Correct! 🎉";
@@ -59,18 +56,19 @@ const checkAnswer = (selectedColor) => {
     } else {
         gameStatus.style.color = "red";
         scoreBoard.style.color = "red";
-        gameStatus.textContent="Wrong, try again! ❌";
+        gameStatus.textContent="Wrong! ❌";
     }
-    setTimeout(startGame,2500)
+    setTimeout(startGame,2000)
 };
 const newGame=()=>{
     score=0
+    score.textContent = `Score: 0`;
     gameActive=true;
     generateNewColors()
     renderOptionButtons()
 }
 const startGame=()=>{
-    scoreBoard.style.color = "#333333";
+    scoreBoard.style.color = "#333333";;
     generateNewColors()
     renderOptionButtons()
 }
